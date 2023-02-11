@@ -9,4 +9,11 @@
 .content{
     padding: 30px;
 }
-  
+  .hr{
+    width: 50%;
+    margin-top: 15px;
+    padding-top: 1px;
+  }
+  .title{
+    padding-bottom: 15px;
+  }

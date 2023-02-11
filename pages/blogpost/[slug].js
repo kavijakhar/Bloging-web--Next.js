@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 import styles from '@/styles/blog.module.css'
 
 
-const slug = () => {
-    const router = useRouter();
-    const { slug } = router.query;
+const slug = (props) => {
+    const [Blog, setBlog] = useState(props.OneBlog)
     return <div className={styles.main}>
-        <h1>Title of the page</h1>
-        <hr />    
+        <h1>{Blog && Blog.title}</h1>
+        <hr className={styles.hr}/> 
         <div className={styles.content}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde, sit ipsa! Accusantium neque suscipit maiores debitis obcaecati, sapiente repellendus, accusamus odio, quia voluptatem distinctio asperiores deserunt qui doloremque animi eos.
+        {Blog && Blog.content}...
         </div>
     </div>;
-};
+};  
 
-export default slug;  
+
+export async function getServerSideProps(context) {
+    const {slug} = context.query
+    console.log(slug)
+    let data = await fetch(`http://localhost:3000/api/getblogs?slug=${slug}`);
+    let OneBlog = await data.json();
+    return {
+      props: { OneBlog }
+    }
+  }
+
+
+export default slug; 

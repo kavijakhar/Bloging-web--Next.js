@@ -1,10 +1,10 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
+// import Image from 'next/image'
+// import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -21,12 +21,14 @@ export default function Home() {
           <p>
             Bloging next web app with kavya
           </p>
-          <Image className={styles.img} src="/bg.png" width={400} height={200}></Image>
+          {/* <img  className={styles.img}  width={400} height={200} src="/bg.png" alt="hunting coder" /> */}
+          <img className={styles.img} src="/bg.png" width={400} height={200} alt="hunting coder"></img>
+          
           <div>
             App with kavya
           </div>
         </div>
-        <div className={styles.homepara}> <p>Blogging has become an essential tool for individuals and businesses to connect with a wider audience and share their thoughts, opinions, and experiences. It provides an online platform where people can express themselves and reach a large number of people with just a few clicks. Not only does it serve as a creative outlet, but it also allows people to showcase their expertise and build their personal brand. Whether you are writing about a passion, sharing your travel experiences, or providing insights on a particular industry, blogging is a great way to connect with like-minded individuals and make your voice heard in today's digital world. Blogging has become an essential tool for individuals and businesses to connect with a wider audience and share their thoughts, opinions, and experiences. It provides an online platform where people can express themselves and reach a large number of people with just a few clicks. Not only does it serve as a creative outlet, but it also allows people to showcase their expertise and build their personal brand. Whether you are writing about a passion, sharing your travel experiences, or providing insights on a particular industry, blogging is a great way to connect with like-minded individuals and make your voice heard in today's digital world. Blogging has become an essential tool for individuals and businesses to connect with a wider audience and share their thoughts, opinions, and experiences. It provides an online platform where people can express themselves and reach a large number of people with just a few clicks. Not only does it serve as a creative outlet, but it also allows people to showcase their expertise and build their personal brand. Whether you are writing about a passion, sharing your travel experiences, or providing insights on a particular industry, blogging is a great way to connect with like-minded individuals and make your voice heard in today's digital world.</p> </div>
+        {/* <div className={styles.homepara}><p>Blogging has become an essential tool for individuals and businesses to connect with a wider audience and share their thoughts, opinions, and experiences. It provides an online platform where people can express themselves and reach a large number of people with just a few clicks. Not only does it serve as a creative outlet, but it also allows people to showcase their expertise and build their personal brand. Whether you are writing about a passion, sharing your travel experiences, or providing insights on a particular industry, blogging is a great way to connect with like-minded individuals and make your voice heard in today's digital world. Blogging has become an essential tool for individuals and businesses to connect with a wider audience and share their thoughts, opinions, and experiences. It provides an online platform where people can express themselves and reach a large number of people with just a few clicks. Not only does it serve as a creative outlet, but it also allows people to showcase their expertise and build their personal brand. Whether you are writing about a passion, sharing your travel experiences, or providing insights on a particular industry, blogging is a great way to connect with like-minded individuals and make your voice heard in today's digital world. Blogging has become an essential tool for individuals and businesses to connect with a wider audience and share their thoughts, opinions, and experiences. It provides an online platform where people can express themselves and reach a large number of people with just a few clicks. Not only does it serve as a creative outlet, but it also allows people to showcase their expertise and build their personal brand. Whether you are writing about a passion, sharing your travel experiences, or providing insights on a particular industry, blogging is a great way to connect with like-minded individuals and make your voice heard in today's digital world.</p></div> */}
       </main>
     </>
   )

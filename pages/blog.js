@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Inter } from '@next/font/google'
+import * as fs from 'fs';
 import styles from '@/styles/Home.module.css'
-import Link from 'next/link'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -13,22 +13,22 @@ const inter = Inter({ subsets: ['latin'] })
 
 const Blog = (props) => {
   console.log(props)
-  const [blogs, setblogs] = useState(props.allblogs)
+  const [blogs, setblogs] = useState(props.mydata)
   return (
 
     <main className={styles.main}>
       <div className={styles.grid}>
         {
-          blogs.map((blogpost) => {
+          blogs.map((blogitem) => {
             return (
-              <a href={`blogpost/${blogpost.slug}`}
-                key={blogpost.title} className={styles.card}
+              <a href={`/blogpost/${blogitem.slug}`}
+                key={blogitem.title} className={styles.card}
               >
                 <h2 className={styles.title}>
-                  {blogpost.title}
+                  {blogitem.title}
                 </h2>
                 <p className={styles.content} >
-                  {blogpost.content.substr(0, 140)}....
+                  {blogitem.content.substr(0, 140)}....
                 </p>
               </a>
             )
@@ -38,11 +38,19 @@ const Blog = (props) => {
     </main >
   )
 }
-export async function getServerSideProps(context) {
-  let data = await fetch("http://localhost:3000/api/blogs");
-  let allblogs = await data.json();
+export async function getStaticProps(context) {
+
+  let data = await fs.promises.readdir('blogdata')
+  let mydata = [];
+
+  for (let index = 0; index < data.length; index++) {
+    const item = data[index]
+    let myfile = await fs.promises.readFile('blogdata/' + item, 'utf-8')
+    mydata.push(JSON.parse(myfile))
+  }
+
   return {
-    props: { allblogs }
+    props: {mydata}
   }
 }
 
